@@ -23,7 +23,7 @@ Under active development.
 Current milestone:
 
 - [x] Repository initialized
-- [ ] Runtime Kernel
+- [x] Runtime Kernel
 - [ ] Local LLM Support
 - [ ] Embedding Pipeline
 - [ ] Semantic RAG
