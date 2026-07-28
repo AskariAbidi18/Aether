@@ -165,3 +165,6 @@ temp/
 # Git
 # ----------------------------
 .gitmodules
+
+# uv
+# Keep uv.lock tracked for reproducible builds.
