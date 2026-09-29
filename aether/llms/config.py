@@ -1,10 +1,18 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
-from .config import GenerationConfig
 from .message import ChatMessage
+
+
+@dataclass(frozen=True, slots=True)
+class GenerationConfig:
+    temperature: float = 1.0
+    max_tokens: int | None = None
+    top_p: float = 1.0
+    stream: bool = False
+    stop_sequences: list[str] = field(default_factory=list)
 
 
 @dataclass(frozen=True, slots=True, init=False)
