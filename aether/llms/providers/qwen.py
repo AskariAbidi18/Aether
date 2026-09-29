@@ -1,16 +1,25 @@
+from __future__ import annotations
+
 from collections.abc import AsyncIterator
 
-from aether.llms.base import BaseLLM 
-from aether.kernel.request import Request
 from aether.kernel.response import Response
+from aether.llms.base import BaseLLM
+from aether.llms.config import ChatRequest
+
 
 class QwenProvider(BaseLLM):
-    def __init__(self, api_key : str, model : str = "qwen3-235b-a22b-instruct"):
+
+    def __init__(
+        self,
+        api_key: str,
+        model: str = "qwen3-235b-a22b-instruct",
+    ):
         self.api_key = api_key
         self.model = model
 
-    def generate(self, request : Request) -> Response:
+    async def generate(self, request: ChatRequest) -> Response:
         pass
 
-    def stream(self, request : Request) -> AsyncIterator[Response]:
+    async def stream(self, request: ChatRequest) -> AsyncIterator[Response]:
         pass
+    

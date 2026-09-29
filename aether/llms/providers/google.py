@@ -1,16 +1,25 @@
+from __future__ import annotations
+
 from collections.abc import AsyncIterator
 
-from aether.llms.base import BaseLLM 
-from aether.kernel.request import Request
 from aether.kernel.response import Response
+from aether.llms.base import BaseLLM
+from aether.llms.config import ChatRequest
+
 
 class GoogleProvider(BaseLLM):
-    def __init__(self, api_key : str, model : str = "gemini-3.8-flash"):
+
+    def __init__(
+        self,
+        api_key: str,
+        model: str = "gemini-3.8-flash",
+    ):
         self.api_key = api_key
         self.model = model
 
-    def generate(self, request : Request) -> Response:
+    async def generate(self, request: ChatRequest) -> Response:
         pass
 
-    def stream(self, request : Request) -> AsyncIterator[Response]:
+    async def stream(self, request: ChatRequest) -> AsyncIterator[Response]:
         pass
+    

@@ -1,16 +1,25 @@
+from __future__ import annotations
+
 from collections.abc import AsyncIterator
 
-from aether.llms.base import BaseLLM 
-from aether.kernel.request import Request
 from aether.kernel.response import Response
+from aether.llms.base import BaseLLM
+from aether.llms.config import ChatRequest
+
 
 class AnthropicProvider(BaseLLM):
-    def __init__(self, api_key : str, model : str = "claude-sonnet-4-6"):
+
+    def __init__(
+        self,
+        api_key: str,
+        model: str = "claude-sonnet-4-6",
+    ):
         self.api_key = api_key
         self.model = model
 
-    def generate(self, request : Request) -> Response:
+    async def generate(self, request: ChatRequest) -> Response:
         pass
 
-    def stream(self, request : Request) -> AsyncIterator[Response]:
+    async def stream(self, request: ChatRequest) -> AsyncIterator[Response]:
         pass
+    
