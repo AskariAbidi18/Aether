@@ -17,7 +17,7 @@ class GenerationConfig:
 
 @dataclass(frozen=True, slots=True, init=False)
 class ChatRequest:
-    messages: tuple[ChatMessage, ...]
+    messages: tuple[ChatMessage, ...]  
     model: str | None
     generation_config: GenerationConfig
 
@@ -30,4 +30,3 @@ class ChatRequest:
         object.__setattr__(self, "messages", tuple(messages))
         object.__setattr__(self, "model", model)
         object.__setattr__(self, "generation_config", generation_config)
-        
